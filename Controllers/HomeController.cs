@@ -1,32 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TodoAppGit.Models;
+using Dapper;
+
 
 namespace TodoAppGit.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        string connectionString = "Server=104.247.162.242\\MSSQLSERVER2019;Initial Catalog=bariscak_git;User Id=bariscak_gitDbUser;Password=dw7rR80#8; TrustServerCertificate=True";
 
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
